@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/endru/static/css/main.807a638c.css",
+    "main.js": "/endru/static/js/main.14790294.js",
+    "static/media/2639139-kitchen-4k-high-quality-wallpaper-hd.jpg": "/endru/static/media/2639139-kitchen-4k-high-quality-wallpaper-hd.20644b92f32033f5bc12.jpg",
+    "index.html": "/endru/index.html",
+    "main.807a638c.css.map": "/endru/static/css/main.807a638c.css.map",
+    "main.14790294.js.map": "/endru/static/js/main.14790294.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.807a638c.css",
+    "static/js/main.14790294.js"
+  ]
+}
