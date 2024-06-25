@@ -39,7 +39,7 @@ textarea {
 
 .nav {
 	position: fixed;
-	z-index: 1000;
+	z-index: 1001;
 	width: 100%;
 	padding: 2em 3em;
 	color: #e0b96e;
@@ -153,9 +153,9 @@ h1 {
 h2 {
 	/* font-size: 2rem; */
 	padding: 0 1em;
-	font-size: 3rem;
+	font-size: 3.5rem;
 	text-align: center;
-	font-weight: 600;
+	font-weight: 800;
 }
 
 .header-info {
@@ -174,18 +174,23 @@ h2 {
 	color: #000;
 	font-size: 2rem;
 	font-weight: 700;
-	padding: 0.6em 1.2em;
+	padding: 0.6em 2em;
 	border-radius: 5em;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	cursor: pointer;
-	background-color: #d9d9d9;
+	background-color: #e0b96e;
 }
 
 .header-btn svg {
 	margin-left: 0.5em;
 	scale: 1.1;
+}
+
+.header-btn:hover {
+	background-color: #ffffff;
+	transition: all 0.3s;
 }
 
 .summary-section {
@@ -346,11 +351,12 @@ h2 {
 	width: 10em;
 	height: 10em;
 	border-radius: 50%;
-	background-color: #292e35;
+	background-color: #22252b;
+	z-index: 1000;
 }
 
 .detail-circle svg {
-	font-size: 5.5rem;
+	font-size: 5rem;
 	color: #e0b96e;
 }
 
@@ -359,8 +365,11 @@ h2 {
 	flex-direction: column;
 	justify-content: center;
 	text-align: center;
-	align-items: flex-start;
+	align-items: center;
 	margin: 3.5em 0;
+	background-color: #292e35;
+	padding: 2em;
+	border-radius: 2em;
 }
 
 .detail-title {
@@ -370,10 +379,13 @@ h2 {
 	color: #e0b96e;
 }
 
+
+
 .detail-description {
-	font-size: 1.8rem;
+	font-size: 1.6rem;
 	/* max-width: 200px; */
 	font-weight: 200;
+	color: #ffffffd5;
 }
 
 .detail-description p {
@@ -432,6 +444,7 @@ h2 {
 	flex-direction: column;
 	align-items: center;
 	margin: 3em;
+	margin-bottom: 10em;
 	margin-top: 0;
 	padding: 3em 4em;
 	border-radius: 2em;
@@ -439,14 +452,14 @@ h2 {
 }
 
 .form-text p {
-	font-size: 1.5rem;
+	font-size: 1.7rem;
 	font-weight: 200;
 	padding: 1em 0;
 }
 
 h5 {
 	color: #e0b96e;
-	font-size: 3rem;
+	font-size: 3.5rem;
 	font-weight: 800;
 }
 
@@ -461,8 +474,8 @@ h5 {
 }
 
 label {
-	color: #717171;
-	font-size: 1.5rem;
+	color: #979797;
+	font-size: 1.6rem;
 	margin-left: 0.25em;
 	margin-bottom: 0.25em;
 }
@@ -488,15 +501,21 @@ textarea {
 	background-color: #e0b96e;
 	color: #000;
 	font-weight: 800;
-	padding: 0.5em 1.1em;
-	font-size: 1.5rem;
+	padding: 0.5em 1.6em;
+	font-size: 1.8rem;
 	border: none;
 	border-radius: 2em;
 	margin-top: 1em;
+	cursor: pointer;
 }
 
 .send svg {
-	margin-left: 0.2em;
+	margin-left: 0.5em;
+}
+
+.send:hover {
+	background-color: #ffffff;
+	transition: all 0.3s;
 }
 
 @media (min-width: 500px) {
@@ -511,13 +530,17 @@ textarea {
 
 @media (min-width: 1000px) {
 	h2 {
-		width: 600px;
-		font-size: 3.5rem;
+		width: 800px;
+		font-size: 4rem;
 	}
 
 	.summary-section {
 		justify-content: space-around;
 		flex-direction: row;
+	}
+
+	.header-info {
+		font-size: 2rem;
 	}
 
 	.summary-description {
@@ -528,6 +551,7 @@ textarea {
 	.details-area {
 		flex-direction: row;
 		justify-content: space-between;
+		align-items: flex-start;
 	}
 
 	/* dfadada */
@@ -538,11 +562,11 @@ textarea {
 		width: 10em;
 		height: 10em;
 		border-radius: 50%;
-		background-color: #292e35;
+		background-color: #22252b;
 	}
 
 	.detail-circle svg {
-		font-size: 5.5rem;
+		font-size: 5rem;
 		color: #e0b96e;
 	}
 
@@ -550,20 +574,22 @@ textarea {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		text-align: center;
+		text-align: left;
 		align-items: center;
 		margin: 5.5em 0;
+		padding: 3em;
+		border-radius: 2em;
 	}
 
 	.detail-title {
 		text-transform: uppercase;
-		font-size: 1.5rem;
+		font-size: 1.8rem;
 		margin: 0.7em 0;
 		color: #e0b96e;
 	}
 
 	.detail-description {
-		font-size: 1.4rem;
+		font-size: 1.6rem;
 		max-width: 250px;
 	}
 
