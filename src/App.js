@@ -1,14 +1,86 @@
 import React, { useState, useRef } from 'react'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
+import Slider from 'react-slick'
+import kitchen1 from './images/kitchen1.jpg'
+import kitchen2 from './images/kitchen2.jpg'
+import kitchen3 from './images/kitchen3.jpg'
+import kitchen4 from './images/kitchen4.jpg'
+import kitchen5 from './images/kitchen5.jpg'
+import kitchen6 from './images/kitchen6.jpg'
+import kitchen7 from './images/kitchen7.jpg'
+
 export default function App() {
 	return (
 		<div className='App'>
 			<Nav />
 			<Header />
 			<SummarySection />
-			{/* <Gallery /> */}
+			<Gallery />
 			<DetailsSection />
 			<Form />
 			<Footer />
+		</div>
+	)
+}
+
+function Gallery() {
+	const AfroStyles = [
+		{ id: 1, src: kitchen1 },
+		{ id: 2, src: kitchen2 },
+		{ id: 3, src: kitchen3 },
+		{ id: 4, src: kitchen4 },
+		{ id: 5, src: kitchen5 },
+		{ id: 6, src: kitchen6 },
+		{ id: 7, src: kitchen7 },
+	]
+
+	const settings = {
+		dots: true,
+		speed: 1500,
+		slidesToShow: 3,
+		slidesToScroll: 1,
+		infinite: true,
+		autoplay: true,
+		autoplaySpeed: 1500,
+		arrows: true, // Upewnij się, że strzałki są włączone
+		responsive: [
+			{
+				breakpoint: 1024, // dla ekranów poniżej 1024px szerokości
+				settings: {
+					slidesToShow: 2,
+					slidesToScroll: 1,
+					infinite: true,
+					dots: true,
+					arrows: true, // Włącz strzałki
+				},
+			},
+			{
+				breakpoint: 768, // dla ekranów poniżej 768px szerokości
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1,
+					infinite: true,
+					dots: true,
+					arrows: true, // Włącz strzałki
+				},
+			},
+		],
+	}
+
+	return (
+		<div className='content wrapper' id='gallery'>
+			<div className='container'>
+				<Slider {...settings}>
+					{AfroStyles.map(item => (
+						<div key={item.id}>
+							<div className='img-body'>
+								<img src={item.src} alt={`kitchen${item.id}`} />
+							</div>
+						</div>
+					))}
+				</Slider>
+			</div>
 		</div>
 	)
 }
@@ -120,7 +192,6 @@ const images = [
 	'https://via.placeholder.com/300x200?text=Image+9',
 	'https://via.placeholder.com/300x200?text=Image+10',
 ]
-
 
 // function Gallery() {
 // 	return (
@@ -240,7 +311,8 @@ function Form() {
 					<div className='form-text'>
 						<h5>Zarezerwuj</h5>
 						<p>
-							Prześlij mi niezbędne dane do rozpatrzenia Twojego zlecenia. Odezwę się do Ciebie w jak najszybszym terminie drogą mailową.
+							Prześlij mi niezbędne dane do rozpatrzenia Twojego zlecenia. Odezwę się do Ciebie w jak najszybszym
+							terminie drogą mailową.
 						</p>
 					</div>
 					<div className='contact-boxes'>
@@ -306,7 +378,7 @@ function Footer() {
 								</svg>
 								<p>E-mail</p>
 							</div>
-							<p>andrzejkosnik@gmail.com</p>
+							<a href='mailto:andrzejkosnik@gmail.com'>andrzejkosnik@gmail.com</a>
 						</div>
 						<div className='contact'>
 							<div className='contact-title'>
@@ -330,7 +402,9 @@ function Footer() {
 								</svg>
 								<p>Telefon</p>
 							</div>
-							<a href='tel:+48662131525' className='clickable'>+48 662 131 525</a>
+							<a href='tel:+48662131525' className='clickable'>
+								+48 662 131 525
+							</a>
 						</div>
 					</div>
 					<div className='footer-social'>
