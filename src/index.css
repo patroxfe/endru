@@ -36,6 +36,9 @@ textarea {
 	text-decoration: none; /* Usuń podkreślenie */
 }
 
+a {
+	text-decoration: none;
+}
 .content {
 	text-align: center;
 	margin-bottom: 30px;
