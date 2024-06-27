@@ -10,6 +10,13 @@ import kitchen5 from './images/kitchen5.jpg'
 import kitchen6 from './images/kitchen6.jpg'
 import kitchen7 from './images/kitchen7.jpg'
 import { Form } from './Form'
+import { motion } from 'framer-motion'
+
+const detailVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+}
+
 
 export default function App() {
 	return (
@@ -230,81 +237,99 @@ const images = [
 // 	);
 // }
 
-function DetailsSection() {
+ function DetailsSection() {
 	return (
-		<div className='wrapper'>
-			<div className='details-section' id='info'>
-				<div className='details-main'>
-					<p>Dlaczego my?</p>
-					<h3>Pracujemy w zawodzie ponad 30 lat i wyróżniamy się wysokim doświadczeniem.</h3>
-				</div>
-				<div className='details-area'>
-					<div className='detail'>
-						<div className='detail-circle'>
-							<svg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 256 256'>
-								<path
-									fill='currentColor'
-									d='M128 166a38 38 0 1 0-38-38a38 38 0 0 0 38 38m0-64a26 26 0 1 1-26 26a26 26 0 0 1 26-26m112-44H16a6 6 0 0 0-6 6v128a6 6 0 0 0 6 6h224a6 6 0 0 0 6-6V64a6 6 0 0 0-6-6M22 108.82A54.73 54.73 0 0 0 60.82 70h134.36A54.73 54.73 0 0 0 234 108.82v38.36A54.73 54.73 0 0 0 195.18 186H60.82A54.73 54.73 0 0 0 22 147.18Zm212-12.53A42.8 42.8 0 0 1 207.71 70H234ZM48.29 70A42.8 42.8 0 0 1 22 96.29V70ZM22 159.71A42.8 42.8 0 0 1 48.29 186H22ZM207.71 186A42.8 42.8 0 0 1 234 159.71V186Z'
-								/>
-							</svg>
-						</div>
-						<h4 className='detail-title'>Niskie ceny</h4>
-						<p className='detail-description'>
-							Oferuję konkurencyjne ceny mebli wysokiej jakości. Dzięki doświadczeniu i sprawdzonym metodom optymalizuję
-							koszty bez kompromisów w trwałości i estetyce. Korzystam z lokalnych dostawców, co obniża koszty.
-							Nowoczesne technologie zwiększają wydajność. Zapewniam funkcjonalne meble w przystępnych cenach,
-							realizując projekty w ramach budżetu klienta.
-						</p>
-					</div>
-					<div className='detail'>
-						<div className='detail-circle'>
-							<svg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 48 48'>
-								<g fill='none' stroke='currentColor' strokeLinecap='round' strokeLinejoin='round' strokeWidth='4'>
-									<circle cx='24' cy='12' r='8' />
-									<path d='M42 44c0-9.941-8.059-18-18-18S6 34.059 6 44' />
-									<path d='m24 44l4-5l-4-13l-4 13z' />
-								</g>
-							</svg>
-						</div>
-						<h4 className='detail-title'>Doświadczenie</h4>
-						<p className='detail-description'>
-							Od 30 lat specjalizuję się w stolarstwie meblowym. Zaczynałem jako uczeń mistrza, doskonaląc umiejętności
-							w tworzeniu mebli na zamówienie. Projektuję klasyczne i nowoczesne rozwiązania, takie jak szafy i kuchnie.
-							Łączę tradycyjne techniki z nowoczesnymi narzędziami, dbając o każdy detal. Współpracuję z klientami
-							indywidualnymi i firmami, stawiając na trwałość i estetykę. Stolarstwo to moja pasja, którą przekształcam
-							w funkcjonalne i piękne meble.
-						</p>
-					</div>
-					<div className='detail'>
-						<div className='detail-circle'>
-							<svg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 36 36'>
-								<path
-									fill='currentColor'
-									d='m33.71 17.29l-15-15a1 1 0 0 0-1.41 0l-15 15a1 1 0 0 0 1.41 1.41L18 4.41l14.29 14.3a1 1 0 0 0 1.41-1.41Z'
-									class='clr-i-outline clr-i-outline-path-1'
-								/>
-								<path
-									fill='currentColor'
-									d='M28 32h-5V22H13v10H8V18l-2 2v12a2 2 0 0 0 2 2h7V24h6v10h7a2 2 0 0 0 2-2V19.76l-2-2Z'
-									class='clr-i-outline clr-i-outline-path-2'
-								/>
-								<path fill='none' d='M0 0h36v36H0z' />
-							</svg>
-						</div>
-						<h4 className='detail-title'>Elastyczność</h4>
-						<p className='detail-description'>
-							Elastyczność w terminach produkcji mebli jest kluczowa. Dzięki doświadczeniu i dobrze zorganizowanemu
-							warsztatowi dostosowuję się do potrzeb klienta. Realizuję projekty w trybie standardowym i przyspieszonym,
-							zawsze dbając o najwyższą jakość. Współpracuję ściśle z klientami, ustalając realistyczne terminy i
-							elastycznie reagując na zmiany. Moja elastyczność zapewnia terminową realizację zamówień, gwarantując
-							rzetelne wykonanie mebli w uzgodnionym czasie, niezależnie od złożoności projektu.
-						</p>
-					</div>
-				</div>
-			</div>
+	  <div className='wrapper'>
+		<div className='details-section' id='info'>
+		  <div className='details-main'>
+			<p>Dlaczego my?</p>
+			<h3>Pracujemy w zawodzie ponad 30 lat i wyróżniamy się wysokim doświadczeniem.</h3>
+		  </div>
+		  <div className='details-area'>
+			<motion.div
+			  className='detail'
+			  variants={detailVariants}
+			  initial='hidden'
+			  whileInView='visible'
+			  viewport={{ once: true, amount: 0.3 }}
+			>
+			  <div className='detail-circle'>
+				<svg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 256 256'>
+				  <path
+					fill='currentColor'
+					d='M128 166a38 38 0 1 0-38-38a38 38 0 0 0 38 38m0-64a26 26 0 1 1-26 26a26 26 0 0 1 26-26m112-44H16a6 6 0 0 0-6 6v128a6 6 0 0 0 6 6h224a6 6 0 0 0 6-6V64a6 6 0 0 0-6-6M22 108.82A54.73 54.73 0 0 0 60.82 70h134.36A54.73 54.73 0 0 0 234 108.82v38.36A54.73 54.73 0 0 0 195.18 186H60.82A54.73 54.73 0 0 0 22 147.18Zm212-12.53A42.8 42.8 0 0 1 207.71 70H234ZM48.29 70A42.8 42.8 0 0 1 22 96.29V70ZM22 159.71A42.8 42.8 0 0 1 48.29 186H22ZM207.71 186A42.8 42.8 0 0 1 234 159.71V186Z'
+				  />
+				</svg>
+			  </div>
+			  <h4 className='detail-title'>Niskie ceny</h4>
+			  <p className='detail-description'>
+				Oferuję konkurencyjne ceny mebli wysokiej jakości. Dzięki doświadczeniu i sprawdzonym metodom optymalizuję
+				koszty bez kompromisów w trwałości i estetyce. Korzystam z lokalnych dostawców, co obniża koszty.
+				Nowoczesne technologie zwiększają wydajność. Zapewniam funkcjonalne meble w przystępnych cenach,
+				realizując projekty w ramach budżetu klienta.
+			  </p>
+			</motion.div>
+			<motion.div
+			  className='detail'
+			  variants={detailVariants}
+			  initial='hidden'
+			  whileInView='visible'
+			  viewport={{ once: true, amount: 0.3 }}
+			>
+			  <div className='detail-circle'>
+				<svg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 48 48'>
+				  <g fill='none' stroke='currentColor' strokeLinecap='round' strokeLinejoin='round' strokeWidth='4'>
+					<circle cx='24' cy='12' r='8' />
+					<path d='M42 44c0-9.941-8.059-18-18-18S6 34.059 6 44' />
+					<path d='m24 44l4-5l-4-13l-4 13z' />
+				  </g>
+				</svg>
+			  </div>
+			  <h4 className='detail-title'>Doświadczenie</h4>
+			  <p className='detail-description'>
+				Od 30 lat specjalizuję się w stolarstwie meblowym. Zaczynałem jako uczeń mistrza, doskonaląc umiejętności
+				w tworzeniu mebli na zamówienie. Projektuję klasyczne i nowoczesne rozwiązania, takie jak szafy i kuchnie.
+				Łączę tradycyjne techniki z nowoczesnymi narzędziami, dbając o każdy detal. Współpracuję z klientami
+				indywidualnymi i firmami, stawiając na trwałość i estetykę. Stolarstwo to moja pasja, którą przekształcam
+				w funkcjonalne i piękne meble.
+			  </p>
+			</motion.div>
+			<motion.div
+			  className='detail'
+			  variants={detailVariants}
+			  initial='hidden'
+			  whileInView='visible'
+			  viewport={{ once: true, amount: 0.3 }}
+			>
+			  <div className='detail-circle'>
+				<svg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 36 36'>
+				  <path
+					fill='currentColor'
+					d='m33.71 17.29l-15-15a1 1 0 0 0-1.41 0l-15 15a1 1 0 0 0 1.41 1.41L18 4.41l14.29 14.3a1 1 0 0 0 1.41-1.41Z'
+					className='clr-i-outline clr-i-outline-path-1'
+				  />
+				  <path
+					fill='currentColor'
+					d='M28 32h-5V22H13v10H8V18l-2 2v12a2 2 0 0 0 2 2h7V24h6v10h7a2 2 0 0 0 2-2V19.76l-2-2Z'
+					className='clr-i-outline clr-i-outline-path-2'
+				  />
+				  <path fill='none' d='M0 0h36v36H0z' />
+				</svg>
+			  </div>
+			  <h4 className='detail-title'>Elastyczność</h4>
+			  <p className='detail-description'>
+				Elastyczność w terminach produkcji mebli jest kluczowa. Dzięki doświadczeniu i dobrze zorganizowanemu
+				warsztatowi dostosowuję się do potrzeb klienta. Realizuję projekty w trybie standardowym i przyspieszonym,
+				zawsze dbając o najwyższą jakość. Współpracuję ściśle z klientami, ustalając realistyczne terminy i
+				elastycznie reagując na zmiany. Moja elastyczność zapewnia terminową realizację zamówień, gwarantując
+				rzetelne wykonanie mebli w uzgodnionym czasie, niezależnie od złożoności projektu.
+			  </p>
+			</motion.div>
+		  </div>
 		</div>
+	  </div>
 	)
-}
+  }
 
 function Footer() {
 	return (
@@ -323,7 +348,7 @@ function Footer() {
 								</svg>
 								<p>E-mail</p>
 							</div>
-							<a href='mailto:andrzejkosnik@gmail.com'>andrzejkosnik@gmail.com</a>
+							<a href='mailto:andrzej.kosnik85@wp.pl'>andrzej.kosnik85@wp.pl</a>
 						</div>
 						<div className='contact'>
 							<div className='contact-title'>
@@ -347,8 +372,8 @@ function Footer() {
 								</svg>
 								<p>Telefon</p>
 							</div>
-							<a href='tel:+48662131525' className='clickable'>
-								+48 662 131 525
+							<a href='tel:+48503153424' className='clickable'>
+								+48 503 153 424
 							</a>
 						</div>
 					</div>
