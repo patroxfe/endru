@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes, Link, useLocation } from 'react-router-dom'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import Slider from 'react-slick'
@@ -13,7 +13,6 @@ import kitchen7 from './images/kitchen7.jpg'
 import { Form } from './Form'
 import { motion } from 'framer-motion'
 import NewPage from './NewPage' // Import nowego komponentu
-import { Link } from 'react-router-dom'
 
 const detailVariants = {
 	hidden: { opacity: 0, y: 50 },
@@ -27,7 +26,7 @@ export default function App() {
 				<Nav />
 				<Routes>
 					<Route path='/' element={<Home />} />
-					<Route path='/newpage' element={<NewPage />} />
+					<Route path='/galeria' element={<NewPage />} />
 				</Routes>
 			</div>
 		</Router>
@@ -110,6 +109,7 @@ function Gallery() {
 
 function Nav() {
 	const [isMobileNavOpen, setIsMobileNavOpen] = useState(false)
+	const location = useLocation()
 
 	const toggleMobileNav = () => {
 		setIsMobileNavOpen(!isMobileNavOpen)
@@ -119,36 +119,39 @@ function Nav() {
 		setIsMobileNavOpen(false)
 	}
 
+	// Check if we are on the gallery page
+	const isGalleryPage = location.pathname === '/galeria'
+
 	return (
 		<nav className='nav'>
 			<div className='wrapper'>
 				<div className='nav-items'>
-					<h1 className='mobile-h1'>ENDRU</h1>
+					<Link to='/'>
+						<h1 className='mobile-h1'>ENDRU</h1>
+					</Link>
 					<div className='nav-details'>
-						<a href='#gallery'>Projekty</a>
-						<Link to='/newpage'>Galeria</Link> {/* Dodano nowy link */}
-						<h1 className='desktop-h1'>ENDRU</h1>
-						<a href='#report'>Rezerwacje</a>
-						<a href='#contact'>Kontakt</a>
+						<a href={isGalleryPage ? '/' : '#gallery'}>Projekty</a>
+						<Link to={isGalleryPage ? '/' : '/galeria'}>Galeria</Link>
+						<Link to='/'>
+							<h1 className='desktop-h1'>ENDRU</h1>
+						</Link>
+						<a href={isGalleryPage ? '/' : '#report'}>Rezerwacje</a>
+						<a href={isGalleryPage ? '/' : '#contact'}>Kontakt</a>
 					</div>
 
 					<div className={`nav-details-mobile ${isMobileNavOpen ? 'open' : ''}`}>
-						<a href='#gallery' onClick={closeMobileNav}>
+						<a href={isGalleryPage ? '/' : '#gallery'} onClick={closeMobileNav}>
 							Projekty
 						</a>
-						<a href='#info' onClick={closeMobileNav}>
-							Informacje
-						</a>
-						<a href='#report' onClick={closeMobileNav}>
+						<Link to={isGalleryPage ? '/' : '/galeria'} onClick={closeMobileNav}>
+							Galeria
+						</Link>
+						<a href={isGalleryPage ? '/' : '#report'} onClick={closeMobileNav}>
 							Rezerwacje
 						</a>
-						<a href='#contact' onClick={closeMobileNav}>
+						<a href={isGalleryPage ? '/' : '#contact'} onClick={closeMobileNav}>
 							Kontakt
 						</a>
-						<Link to='/newpage' onClick={closeMobileNav}>
-							Nowa Strona
-						</Link>{' '}
-						{/* Dodano nowy link */}
 					</div>
 
 					<div className='burger-menu' onClick={toggleMobileNav}>
